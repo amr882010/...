@@ -135,13 +135,13 @@ button#nextBtn{
 
 /* صفحة الرسالة */
 .message-page{
-    height: 100vh;          
+    height: 100vh;
     max-height: 100vh;
     display:flex;
     align-items:center;
     justify-content:center;
     background: linear-gradient(135deg,#ffdde1,#ee9ca7);
-    padding: 0;             
+    padding: 0;
     box-sizing:border-box;
 }
 
@@ -278,7 +278,7 @@ button#nextBtn{
 let correctPass = "882010";
 let lastSong = "";
 
-// إضافة القلوب على كل الصفحات عدا صفحة الباسورد
+// إضافة القلوب على كل الصفحات (love, music, next)
 function createHearts(){
     const pages = ['love','music','next'];
     const colors = ['#ff4f91','#ff77aa','#ff3f7f','#ff6699','#ff88bb'];
@@ -296,17 +296,16 @@ function createHearts(){
         }
     });
 }
-
 createHearts();
 
 function show(id){
     document.querySelectorAll('.page').forEach(p=>p.style.display="none");
     let page = document.getElementById(id);
-    page.style.display = "flex"; // عشان صفحة الرسالة flex
+    page.style.display = "flex";
 
     if(id === "next"){
         let bg = document.getElementById("bgMusic");
-        if(lastSong) {
+        if(lastSong){
             bg.pause();
             bg.currentTime = 0;
             bg.src = lastSong;
